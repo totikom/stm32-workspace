@@ -1,5 +1,5 @@
 LINKER_SCRIPT = linker_script.ld
-C_FLAGS  = -c -O0 -mcpu=cortex-m3 -mthumb -g3
+C_FLAGS  = -c -O2 -mcpu=cortex-m3 -mthumb
 OPENOCD_FLAGS = -f interface/stlink.cfg -f target/stm32f3x.cfg
  
 all: main.elf
