@@ -129,7 +129,10 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	HAL_Delay(500);
+	if (HAL_GPIO_ReadPin(USER_Btn_GPIO_Port, USER_Btn_Pin) != GPIO_PIN_RESET)
+		HAL_Delay(1000);
+	else
+		HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -337,7 +340,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : USER_Btn_Pin */
   GPIO_InitStruct.Pin = USER_Btn_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USER_Btn_GPIO_Port, &GPIO_InitStruct);
 
