@@ -15,7 +15,6 @@
         devShells.default = pkgs.mkShellNoCC {
           packages = with pkgs; [
             stm32cubemx
-            gdb
             openocd
             stlink
             cmake
